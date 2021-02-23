@@ -27,9 +27,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Preguntas.findAll", query = "SELECT p FROM Preguntas p")
     , @NamedQuery(name = "Preguntas.findByIdPregunta", query = "SELECT p FROM Preguntas p WHERE p.idPregunta = :idPregunta")
-    , @NamedQuery(name = "Preguntas.findByPreguntaA", query = "SELECT p FROM Preguntas p WHERE p.preguntaA = :preguntaA")
-    , @NamedQuery(name = "Preguntas.findByPreguntaB", query = "SELECT p FROM Preguntas p WHERE p.preguntaB = :preguntaB")
-    , @NamedQuery(name = "Preguntas.findByPreguntaC", query = "SELECT p FROM Preguntas p WHERE p.preguntaC = :preguntaC")
+    , @NamedQuery(name = "Preguntas.findByPregunta", query = "SELECT p FROM Preguntas p WHERE p.pregunta = :pregunta")
+    , @NamedQuery(name = "Preguntas.findByOpcion1", query = "SELECT p FROM Preguntas p WHERE p.opcion1 = :opcion1")
+    , @NamedQuery(name = "Preguntas.findByOpcion2", query = "SELECT p FROM Preguntas p WHERE p.opcion2 = :opcion2")
+    , @NamedQuery(name = "Preguntas.findByOpcion3", query = "SELECT p FROM Preguntas p WHERE p.opcion3 = :opcion3")
     , @NamedQuery(name = "Preguntas.findBySolucion", query = "SELECT p FROM Preguntas p WHERE p.solucion = :solucion")})
 public class Preguntas implements Serializable {
 
@@ -40,14 +41,17 @@ public class Preguntas implements Serializable {
     @Column(name = "idPregunta")
     private Integer idPregunta;
     @Basic(optional = false)
-    @Column(name = "preguntaA")
-    private String preguntaA;
+    @Column(name = "pregunta")
+    private String pregunta;
     @Basic(optional = false)
-    @Column(name = "preguntaB")
-    private String preguntaB;
+    @Column(name = "opcion1")
+    private String opcion1;
     @Basic(optional = false)
-    @Column(name = "preguntaC")
-    private String preguntaC;
+    @Column(name = "opcion2")
+    private String opcion2;
+    @Basic(optional = false)
+    @Column(name = "opcion3")
+    private String opcion3;
     @Basic(optional = false)
     @Column(name = "solucion")
     private String solucion;
@@ -59,11 +63,12 @@ public class Preguntas implements Serializable {
         this.idPregunta = idPregunta;
     }
 
-    public Preguntas(Integer idPregunta, String preguntaA, String preguntaB, String preguntaC, String solucion) {
+    public Preguntas(Integer idPregunta, String pregunta, String opcion1, String opcion2, String opcion3, String solucion) {
         this.idPregunta = idPregunta;
-        this.preguntaA = preguntaA;
-        this.preguntaB = preguntaB;
-        this.preguntaC = preguntaC;
+        this.pregunta = pregunta;
+        this.opcion1 = opcion1;
+        this.opcion2 = opcion2;
+        this.opcion3 = opcion3;
         this.solucion = solucion;
     }
 
@@ -75,28 +80,36 @@ public class Preguntas implements Serializable {
         this.idPregunta = idPregunta;
     }
 
-    public String getPreguntaA() {
-        return preguntaA;
+    public String getPregunta() {
+        return pregunta;
     }
 
-    public void setPreguntaA(String preguntaA) {
-        this.preguntaA = preguntaA;
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 
-    public String getPreguntaB() {
-        return preguntaB;
+    public String getOpcion1() {
+        return opcion1;
     }
 
-    public void setPreguntaB(String preguntaB) {
-        this.preguntaB = preguntaB;
+    public void setOpcion1(String opcion1) {
+        this.opcion1 = opcion1;
     }
 
-    public String getPreguntaC() {
-        return preguntaC;
+    public String getOpcion2() {
+        return opcion2;
     }
 
-    public void setPreguntaC(String preguntaC) {
-        this.preguntaC = preguntaC;
+    public void setOpcion2(String opcion2) {
+        this.opcion2 = opcion2;
+    }
+
+    public String getOpcion3() {
+        return opcion3;
+    }
+
+    public void setOpcion3(String opcion3) {
+        this.opcion3 = opcion3;
     }
 
     public String getSolucion() {

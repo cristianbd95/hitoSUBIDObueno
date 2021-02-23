@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Controlador extends HttpServlet {
 
@@ -35,6 +36,15 @@ public class Controlador extends HttpServlet {
                     break;
                 case "consulta4":
                     request.getRequestDispatcher("/dispatcher/consulta4.jsp").forward(request, response);
+                    break;
+                case "resultado":
+                    request.getRequestDispatcher("/dispatcher/resultado.jsp").forward(request, response);
+                    break;
+                case "validar":
+                    request.getRequestDispatcher("/dispatcher/login.jsp").forward(request, response);
+                    break;
+                case "login":
+                    request.getRequestDispatcher("/dispatcher/login.jsp").forward(request, response);
                     break;
             }
         }

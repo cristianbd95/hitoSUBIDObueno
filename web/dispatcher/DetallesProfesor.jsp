@@ -12,6 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="DetallesProfesor.jsp" method="post">
+
+            <input type="submit" name="btoEnviarTest" value="Terminar test">
+        </form>
+        <%
+            out.println(request.getParameter("opciones1"));
+        %>
     </body>
 </html>
