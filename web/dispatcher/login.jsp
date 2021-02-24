@@ -58,15 +58,24 @@
                     session.setAttribute("idioma_s", idioma);
                 }
 
-                if (request.getParameter("btoEnvioLogin") != null) {
-                    int entero = (Integer) request.getAttribute("unEntero") - 1;
-                    request.setAttribute("unEntero", entero);
-                    if (entero > 0) {
-                        out.println("<br>te quedan " + entero + " intentos <br>");
-                    } else {
-                        out.println("Ya no te quedan intentos");
+                    int entero;
+                    try {
+                        entero = (int) session.getAttribute("control");
+                    } catch (Exception ex) {
+                        entero = 3;
                     }
-                }
+
+                    if (entero >= 1) {
+                        if (session.getAttribute("MyAttribute") != null) {
+                            entero--;
+                            out.println("Te quedan " + entero + " intentos<br>");
+                        }
+                    } else {
+                        out.println("Ya no te quedan intentos<br>");
+                    }
+
+                    session.setAttribute("control", entero);
+                
 
             %>
 

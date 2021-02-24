@@ -24,6 +24,9 @@
     }
     String rango = (String) request.getAttribute("rango");
     session.setAttribute("contIntentos",3);
+    request.getAttribute("idUsuario");
+    int idUsuario = (Integer) request.getAttribute("idUsuario");
+    session.setAttribute("idU", idUsuario);
     if(rango.equals("Alumno")){
     %> 
         <a href="Controlador?direccion=consulta1" target="myFrame"><%=comenzarTest%></a>&nbsp &nbsp

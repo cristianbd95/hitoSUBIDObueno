@@ -1,6 +1,7 @@
 package preguntashito;
 
 import controladores.PreguntasJpaController;
+import controladores.RespuestasJpaController;
 import controladores.UsuariosJpaController;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +23,10 @@ public class OperacionesJPA {
     EntityManagerFactory emf2 = Persistence.createEntityManagerFactory("PreguntasHITOPU");
     EntityManager em2 = emf.createEntityManager();
     UsuariosJpaController ujc = new UsuariosJpaController(emf2);
+    
+    EntityManagerFactory emf3 = Persistence.createEntityManagerFactory("PreguntasHITOPU");
+    EntityManager em3 = emf.createEntityManager();
+    RespuestasJpaController rjc = new RespuestasJpaController(emf3);
 
     private static String nombreArchivo = "pregunta.txt";
     private static String rutaArchivo = "src/preguntashito/";
@@ -115,5 +120,59 @@ public class OperacionesJPA {
         em.getTransaction().begin();
         em.createNativeQuery("truncate table preguntas").executeUpdate();
         em.getTransaction().commit();
+    }
+    
+    public void crearRespuestas(Respuestas respuestas) {
+        try {
+            em3.getTransaction().begin();
+            em3.persist(respuestas);
+            em3.getTransaction().commit();
+            System.out.println("CREAR CORRECTO");
+        } catch (Exception e) {
+            System.out.println("ERROR CREAR");
+        }
+    }
+    
+    public boolean ValidarTest(int idU) {
+        Boolean bandera = false;
+        String jpql = "SELECT r FROM Respuestas r WHERE r.idUsuario=" + idU;
+        Query query = em3.createQuery(jpql);
+        List<Respuestas> respuestas_al = query.getResultList();
+        if (respuestas_al.size() >= 1) {
+            bandera = true;
+        }
+        System.out.println(bandera);
+        return bandera;
+    }
+    public List<Respuestas> BuscarTodasRespuestas() {
+        List<Respuestas> respuestas_al = rjc.findRespuestasEntities();
+        return respuestas_al;
+    }
+    
+    public List<Integer> calcularMediaNota() {
+        int media = 0;
+        String jpql = "SELECT avg(r.nota) FROM Respuestas r";
+        Query query = em3.createQuery(jpql);
+        List<Integer> media_al = query.getResultList();
+        
+        return media_al;
+    }
+    
+    public List<String> calcularAlumnoNotaAlta() {
+        int media = 0;
+        String jpql = "SELECT max(r.nota) FROM Respuestas r";
+        Query query = em3.createQuery(jpql);
+        List<String> media_al = query.getResultList();
+        
+        return media_al;
+    }
+    
+    public List<String> calcularAlumnoNotaBaja() {
+        int media = 0;
+        String jpql = "SELECT min(r.nota) FROM Respuestas r";
+        Query query = em3.createQuery(jpql);
+        List<String> media_al = query.getResultList();
+        
+        return media_al;
     }
 }

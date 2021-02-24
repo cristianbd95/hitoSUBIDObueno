@@ -4,6 +4,10 @@
     Author     : kk
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +23,15 @@
     </body>
 </html>
 
-<% 
-    out.println(request.getParameter("hola"));
+<%
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    LocalDateTime now = LocalDateTime.now();
+    out.println(dtf.format(now));//fecha
+    String fecha = dtf.format(now).toString();
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+    Date date = formatter.parse(fecha);
+    
+out.println(date);
+out.println("<br>"+formatter.format(date));
 %>

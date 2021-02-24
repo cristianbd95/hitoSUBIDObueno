@@ -1,6 +1,6 @@
-1/¿Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
+1/Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
 2/Si se activa la opcion Mostrar tabla de datos, ¿es necesario visualizar la leyenda para saber a que pertenece cada uno de los valores representados?/A. Solo si esta desactivada la casilla Mostrar claves de leyenda./B. Solo si esta activada la casilla Mostrar claves de leyenda./C. Los otros supuestos son erroneos./A/
-3/¿Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
+3/Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
 4/Si se activa la opcion Mostrar tabla de datos, ¿es necesario visualizar la leyenda para saber a que pertenece cada uno de los valores representados?/A. Solo si esta desactivada la casilla Mostrar claves de leyenda./B. Solo si esta activada la casilla Mostrar claves de leyenda./C. Los otros supuestos son erroneos./A/
-5/¿Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
+5/Siempre aparece una leyenda junto al grafico?/A. Siempre, incluso si hay una unica serie./B. Siempre que haya mas de una serie./C. Solo si asi se establece./B/
 6/Si se activa la opcion Mostrar tabla de datos, ¿es necesario visualizar la leyenda para saber a que pertenece cada uno de los valores representados?/A. Solo si esta desactivada la casilla Mostrar claves de leyenda./B. Solo si esta activada la casilla Mostrar claves de leyenda./C. Los otros supuestos son erroneos./A/

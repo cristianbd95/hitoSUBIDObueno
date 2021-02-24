@@ -13,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import preguntashito.OperacionesJPA;
 import preguntashito.Usuarios;
 
@@ -41,10 +42,12 @@ public class ServletLogin extends HttpServlet {
                             Usuarios usuario = usuarios_al.get(i);
                             if (usuario.getIdUsuario() == Integer.parseInt(password) && usuario.getNombre().equals(login)) {
                                 request.setAttribute("rango", usuario.getRango());
+                                request.setAttribute("idUsuario", usuario.getIdUsuario());
                                 request.getRequestDispatcher("Controlador?direccion=principal").forward(request, response);
                             }
                         }
-                        request.setAttribute("unEntero", 3);
+                        HttpSession session = request.getSession();
+                        session.setAttribute("MyAttribute", "fallando");
                         request.getRequestDispatcher("Controlador?direccion=validar").forward(request, response);
 
                     } else {
@@ -57,10 +60,12 @@ public class ServletLogin extends HttpServlet {
                             Usuarios usuario = usuarios_al.get(i);
                             if (usuario.getIdUsuario() == Integer.parseInt(password) && usuario.getNombre().equals(login)) {
                                 request.setAttribute("rango", usuario.getRango());
+                                request.setAttribute("idUsuario", usuario.getIdUsuario());
                                 request.getRequestDispatcher("Controlador?direccion=principal").forward(request, response);
                             }
                         }
-                        request.setAttribute("unEntero", 3);
+                        HttpSession session = request.getSession();
+                        session.setAttribute("MyAttribute", "fallando");
                         request.getRequestDispatcher("Controlador?direccion=validar").forward(request, response);
                     }
 
