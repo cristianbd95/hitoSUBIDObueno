@@ -16,22 +16,26 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="prueba.jsp" method="post">
-            <input type="text" name="hola">
-            <input type="submit" name="btoEnviar" value="enviar">
-        </form>
+        <span id="timer"></span>
     </body>
 </html>
 
-<%
 
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-    LocalDateTime now = LocalDateTime.now();
-    out.println(dtf.format(now));//fecha
-    String fecha = dtf.format(now).toString();
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-    Date date = formatter.parse(fecha);
-    
-out.println(date);
-out.println("<br>"+formatter.format(date));
-%>
+<script>
+
+    window.onload = function () {
+        var minute = 2;
+        var sec = 60;
+        setInterval(function () {
+            document.getElementById("timer").innerHTML = minute + " : " + sec;
+            sec--;
+            if (sec == 00) {
+                minute--;
+                sec = 60;
+                if (minute == 0) {
+                    minute = 5;
+                }
+            }
+        }, 1000);
+    }
+</script>

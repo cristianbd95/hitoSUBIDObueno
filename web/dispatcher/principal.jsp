@@ -30,7 +30,7 @@
     if(rango.equals("Alumno")){
     %> 
         <a href="Controlador?direccion=consulta1" target="myFrame"><%=comenzarTest%></a>&nbsp &nbsp
-        <a href="Controlador?direccion=consulta4" target="myFrame"><%=salir%></a>&nbsp &nbsp
+        <a href="Controlador?direccion=login" target="myFrame"><%=salir%></a>&nbsp &nbsp
     <%
     }
 
@@ -38,7 +38,7 @@
     %> 
         <a href="Controlador?direccion=consulta1" target="myFrame"><%=comenzarTest%></a>&nbsp &nbsp
         <a href="Controlador?direccion=consulta2" target="myFrame"><%=actualizar%></a>&nbsp &nbsp
-        <a href="Controlador?direccion=consulta4" target="myFrame"><%=salir%></a>&nbsp &nbsp
+        <a href="Controlador?direccion=login" target="myFrame"><%=salir%></a>&nbsp &nbsp
     <%
     
     }
@@ -46,7 +46,7 @@
     if(rango.equals("Profesor")){
     %> 
         <a href="Controlador?direccion=consulta3" target="myFrame"><%=detallesAlumno%></a>&nbsp &nbsp
-        <a href="Controlador?direccion=consulta4" target="myFrame"><%=salir%></a>&nbsp &nbsp
+        <a href="Controlador?direccion=login" target="myFrame"><%=salir%></a>&nbsp &nbsp
     <%
     }
 

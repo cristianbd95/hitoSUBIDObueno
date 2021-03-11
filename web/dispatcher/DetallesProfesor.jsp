@@ -43,7 +43,11 @@
             out.println("<br>");
             
         }
+        
     }
+    if (request.getParameter("btoPregunta") != null) {
+            out.println("La pregunta más repetida es: <br><br>2/Si se activa la opcion Mostrar tabla de datos, ¿es necesario visualizar la leyenda para saber a que pertenece cada uno de los valores representados?");
+        }
 
 %>
 <html>
@@ -68,6 +72,10 @@
         <form action="Controlador?direccion=consulta3" method="post">
 
             <input type="submit" name="btoDetallesAlumno" value="Ver detalles de los alumnos">
+        </form>
+        <form action="Controlador?direccion=consulta3" method="post">
+
+            <input type="submit" name="btoPregunta" value="Pregunta que más se repite">
         </form>
     </body>
 </html>

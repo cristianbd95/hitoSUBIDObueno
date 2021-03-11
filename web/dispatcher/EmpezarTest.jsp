@@ -10,7 +10,8 @@
 <%@page import="java.util.List"%>
 <%@page import="preguntashito.OperacionesJPA"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<form action="Controlador?direccion=resultado" method="post">
+<span id="timer"></span>
+<form action="Controlador?direccion=resultado" method="post" id="miForm">
     <%
         OperacionesJPA oj = new OperacionesJPA();
         List<Preguntas> preguntas_al = oj.BuscarTodasPreguntas();
@@ -37,8 +38,30 @@
     <%
         }
     %>
+    <input type="hidden" name="timerIn" id="timerIn">
     <input type="submit" name="btoEnviarTest" value="Terminar test">
 </form>
+<script>
+
+    window.onload = function () {
+        var minute = 2;
+        var sec = 60;
+        setInterval(function () {
+            document.getElementById("timer").innerHTML = minute + " : " + sec;
+            sec--;
+
+            document.getElementById("timerIn").value = minute + " : " + sec;
+            sec--;
+            if (sec == 00) {
+                minute--;
+                sec = 60;
+                if (minute == 0) {
+                    document.getElementById(miForm).submit;
+                }
+            }
+        }, 1000);
+    }
+</script>
 
 <%
     if (Integer.parseInt(session.getAttribute("contIntentos").toString()) > 0) {
@@ -53,7 +76,7 @@
         }
     }
 
-    if(control == true){
+    if (control == true) {
         out.println("YA HAS REALIZADO EL TEST");
     }
 

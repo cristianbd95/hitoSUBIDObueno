@@ -91,8 +91,9 @@
         out.println(dtf2.format(now2));//hora
         String hora = dtf2.format(now2).toString();
         String nota = Double.toString(cont);
+        String timer = request.getParameter("timerIn");
 
-        Respuestas respuestas = new Respuestas(1,idUsuario, pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3, pregunta4,respuesta4, pregunta5, respuesta5, fecha, hora, "125 secs", nota);
+        Respuestas respuestas = new Respuestas(1,idUsuario, pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3, pregunta4,respuesta4, pregunta5, respuesta5, fecha, hora, timer, nota);
         oj.crearRespuestas(respuestas);
 
         out.println("Tu puntuacion es: " + cont + "<br>");
